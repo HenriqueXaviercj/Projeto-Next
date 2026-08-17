@@ -9,7 +9,7 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={`${styles.nav} container`}>
         <Link href={"/"} className={styles.logo}>
-          <Image src={"assets/dogs.svg"} width={28} height={22} alt="Dogs" />
+          <Image src={"/assets/dogs.svg"} width={28} height={22} alt="Dogs" />
         </Link>
         {user ? (
           <Link href={"/conta"} className={styles.login}>
