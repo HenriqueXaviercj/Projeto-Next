@@ -7,6 +7,7 @@ import Input from "../forms/input";
 import ErrorMessage from "../helper/error-message";
 import { useEffect } from "react";
 import styles from "./login-form.module.css";
+import passowrdLost from "@/actions/password-lost";
 
 function FormButton() {
   const { pending } = useFormStatus();
@@ -14,14 +15,14 @@ function FormButton() {
   return (
     <>
       <Button disabled={pending} type="submit">
-        {pending ? "Cadastrando..." : "Cadastrar"}
+        {pending ? "Enviando..." : "Enviar Email"}
       </Button>
     </>
   );
 }
 
-export default function LoginCriarForm() {
-  const [state, action] = useFormState(login, {
+export default function LoginPerdeuForm() {
+  const [state, action] = useFormState(passowrdLost, {
     ok: false,
     error: "",
     data: null,
@@ -34,9 +35,8 @@ export default function LoginCriarForm() {
   return (
     <>
       <form action={action} className={styles.form}>
-        <Input label="Usuário" name="username" type="text" />
-        <Input label="Email" name="email" type="email" />
-        <Input label="Senha" name="password" type="password" />
+        <Input label="Email / Usuário" name="login" type="text" />
+        <input type="hidden" value={`${window.location.href.replace("perdeu", "resetar")}`} />
         <ErrorMessage error={state.error} />
         <FormButton />
       </form>
