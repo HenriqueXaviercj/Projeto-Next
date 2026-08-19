@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function PerdeuPage() {
   return (
     <div className="animeLeft">
-      <h1 className="tittle">Perdeu a senha?</h1>
+      <h1 className="title">Perdeu a senha?</h1>
       <LoginPerdeuForm />
     </div>
   );

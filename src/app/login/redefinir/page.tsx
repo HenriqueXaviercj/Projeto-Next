@@ -1,14 +1,26 @@
+import LoginRedefinirForm from "@/components/login/login-redefinir-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Redefinir a senha | Dogs",
-  description: "Altere a senha da sua conta",
+  description: "Redefina a sua senha",
 };
 
-export default function RedefinirPage() {
+type RedefinirSearchParams = {
+  searchParams: {
+    key: string;
+    login: string;
+  };
+};
+
+export default function RedefinirPage({ searchParams }: RedefinirSearchParams) {
   return (
-    <main>
-      <h1>Redefinir</h1>
-    </main>
+    <div className="animeLeft">
+      <h1 className="title">Redefinir</h1>
+      <LoginRedefinirForm
+        keyToken={searchParams.key}
+        login={searchParams.login}
+      />
+    </div>
   );
 }

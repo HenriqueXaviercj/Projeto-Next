@@ -1,6 +1,6 @@
 "use server";
 
-import { PASSWORD_LOST, USER_POST } from "@/utils/functions/api";
+import { PASSWORD_LOST } from "@/utils/functions/api";
 import apiError from "@/utils/functions/api-error";
 
 export default async function passowrdLost(state: {}, formData: FormData) {
@@ -21,8 +21,6 @@ export default async function passowrdLost(state: {}, formData: FormData) {
     });
 
     if (!res.ok) throw new Error("Email ou usuário não cadastrado");
-
-    const data = await res.json();
 
     return { data: null, ok: true, error: "" };
   } catch (error: unknown) {

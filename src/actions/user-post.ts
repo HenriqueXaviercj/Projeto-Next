@@ -23,8 +23,6 @@ export default async function userPost(state: {}, formData: FormData) {
 
     if (!res.ok) throw new Error("Email ou usuário já cadastrado");
 
-    const data = await res.json();
-
     const { ok } = await login({ ok: true, error: "" }, formData);
     if (!ok) throw new Error("Erro ao logar.");
 
