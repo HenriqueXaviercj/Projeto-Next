@@ -3,6 +3,7 @@
 import { USER_GET } from "@/utils/functions/api";
 import apiError from "@/utils/functions/api-error";
 import { cookies } from "next/headers";
+// import { cache } from "react";
 
 export type User = {
   id: number;
@@ -14,9 +15,7 @@ export type User = {
 export default async function userGet() {
   try {
     const token = cookies().get("token")?.value;
-
     if (!token) throw new Error("Token não encontrado");
-
     const { url } = USER_GET();
 
     const res = await fetch(url, {
@@ -36,3 +35,7 @@ export default async function userGet() {
     return apiError(error);
   }
 }
+
+//Pode ser util caso você tenha alguma função com calculos muito complexos
+// const userGetCache = cache(userGet);
+// export default userGetCache;

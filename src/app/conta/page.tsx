@@ -1,10 +1,12 @@
-import userGet from "@/actions/user-get";
+"use client";
 
-export default async function ContaPage() {
-  const { data } = await userGet();
+import { useUser } from "@/context/user-contents";
+
+export default function ContaPage() {
+  const data = useUser();
   return (
     <main>
-      <h1>Conta: {data?.nome}</h1>
+      <h1>Conta: {data?.user?.nome}</h1>
     </main>
   );
 }
