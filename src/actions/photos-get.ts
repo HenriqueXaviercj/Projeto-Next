@@ -21,19 +21,16 @@ type PhotosGetParams = {
   user?: 0 | string;
 };
 
-export default async function photoGet({
+export default async function photosGet({
   page = 1,
   total = 6,
   user = 0,
-}: PhotosGetParams) {
+}: PhotosGetParams = {}) {
   try {
     const { url } = PHOTOS_GET({ page, total, user });
-    const res = await fetch(
-      "https://dogsapi.origamid.dev/json/api/photo/?_page=1&_total=6&_user=0",
-      {
-        next: { revalidate: 10, tags: ["photos"] },
-      },
-    );
+    const res = await fetch(url, {
+      next: { revalidate: 10, tags: ["photos"] },
+    });
 
     if (!res.ok) throw new Error("Erro ao pegar as fotos");
 
