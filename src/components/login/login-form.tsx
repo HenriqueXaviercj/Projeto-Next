@@ -8,6 +8,7 @@ import ErrorMessage from "../helper/error-message";
 import { useEffect } from "react";
 import Link from "next/link";
 import styles from "./login-form.module.css";
+import { useUser } from "@/context/user-contents";
 
 function FormButton() {
   const { pending } = useFormStatus();
@@ -46,7 +47,9 @@ export default function LoginForm() {
       <div className={styles.cadastro}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
         <p>Ainda não possui conta? Cadastre-se no site.</p>
-        <Link className="button"  href={"/login/criar"}>Cadastro</Link>
+        <Link className="button" href={"/login/criar"}>
+          Cadastro
+        </Link>
       </div>
     </>
   );

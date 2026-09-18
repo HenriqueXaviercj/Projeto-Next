@@ -1,12 +1,17 @@
-"use client";
+import photoGet from "@/actions/photos-get";
+import Feed from "@/components/feed/feed";
+import { Metadata } from "next";
 
-import { useUser } from "@/context/user-contents";
+export const metadata: Metadata = {
+  title: "Minha Conta",
+};
 
-export default function ContaPage() {
-  const { user } = useUser();
+export default async function ContaPage() {
+  const {data: } = 
+  const { data } = await photoGet();
   return (
     <main>
-      <h1>Conta: {user?.email}</h1>
+      <Feed />
     </main>
   );
 }
