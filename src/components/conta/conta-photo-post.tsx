@@ -27,8 +27,6 @@ export default function ContaPhotoPost() {
     error: "",
     data: null,
   });
-
-  // console.log(action);
   
 
   const [img, setImg] = useState("");

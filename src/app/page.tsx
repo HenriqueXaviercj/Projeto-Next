@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <section className="container mainContainer">
       <h1 className="title">Dogs Next</h1>
-      <Feed photos={data as Photo[]} />
+      {data && <Feed photos={data} />}
     </section>
   );
 }
