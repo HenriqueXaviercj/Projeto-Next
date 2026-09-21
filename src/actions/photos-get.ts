@@ -32,7 +32,7 @@ export default async function photosGet(
     const { url } = PHOTOS_GET({ page, total, user });
     const res = await fetch(url, options);
 
-    if (!res.ok) throw new Error("Erro ao pegar as fotos");
+    if (!res.ok) throw new Error("Erro ao pegar as fotos.");
 
     const data = (await res.json()) as Photo[];
     return { data, ok: true, error: "" };
