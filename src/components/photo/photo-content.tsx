@@ -6,13 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 import PhotoDelete from "./photo-delete";
 import { PhotoData } from "@/actions/photo-get";
+import PhotoComments from "./photo-comments";
 
 const PhotoContent = ({
   data,
   single,
 }: {
   data: PhotoData;
-  single?: boolean;
+  single: boolean;
 }) => {
   const { user } = useUser();
   const { photo, comments } = data;
@@ -41,7 +42,7 @@ const PhotoContent = ({
           </ul>
         </div>
       </div>
-      {/* <PhotoComments single={single} id={photo.id} comments={comments} /> */}
+      <PhotoComments single={single} id={photo.id} comments={comments} />
     </div>
   );
 };
