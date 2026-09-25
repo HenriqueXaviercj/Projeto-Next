@@ -21,7 +21,7 @@ export default async function FotoIdPage({ params }: FotoIdParams) {
   if (!data) return notFound();
   return (
     <section className="container mainContainer">
-      <PhotoContent data={data} single={false} />
+      <PhotoContent data={data} single={true} />
     </section>
   );
 }

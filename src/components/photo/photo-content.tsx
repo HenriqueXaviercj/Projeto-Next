@@ -8,13 +8,13 @@ import PhotoDelete from "./photo-delete";
 import { PhotoData } from "@/actions/photo-get";
 import PhotoComments from "./photo-comments";
 
-const PhotoContent = ({
+export default function PhotoContent({
   data,
   single,
 }: {
   data: PhotoData;
   single: boolean;
-}) => {
+}) {
   const { user } = useUser();
   const { photo, comments } = data;
 
@@ -45,6 +45,4 @@ const PhotoContent = ({
       <PhotoComments single={single} id={photo.id} comments={comments} />
     </div>
   );
-};
-
-export default PhotoContent;
+}
